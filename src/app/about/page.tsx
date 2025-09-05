@@ -1,20 +1,20 @@
-import {
-  Avatar,
-  Button,
-  Column,
-  Heading,
-  Icon,
-  IconButton,
-  Media,
-  Tag,
-  Text,
-  Meta,
-  Schema,
-  Row,
-} from "@once-ui-system/core";
-import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
+import { about, baseURL, person, social } from "@/resources";
+import {
+    Avatar,
+    Button,
+    Column,
+    Heading,
+    Icon,
+    IconButton,
+    Media,
+    Meta,
+    Row,
+    Schema,
+    Tag,
+    Text,
+} from "@once-ui-system/core";
 import React from "react";
 
 export async function generateMetadata() {

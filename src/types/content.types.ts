@@ -210,6 +210,120 @@ export interface About extends BasePageConfig {
 }
 
 /**
+ * Services page configuration.
+ */
+export interface Services extends BasePageConfig {
+  /** The headline of the services page */
+  headline: React.ReactNode;
+  /** The sub text which appears below the headline */
+  subline: React.ReactNode;
+  /** List of services offered */
+  serviceList: Array<{
+    /** Service category */
+    category: string;
+    /** Service title */
+    title: string;
+    /** Service description */
+    description: string;
+    /** List of features included in the service */
+    features?: string[];
+    /** Call to action for the service */
+    cta?: {
+      text: string;
+      href: string;
+    };
+  }>;
+}
+
+/**
+ * Domain page configuration.
+ */
+export interface Domain extends BasePageConfig {
+  /** The headline of the domain page */
+  headline: React.ReactNode;
+  /** The sub text which appears below the headline */
+  subline: React.ReactNode;
+  /** List of sections on the domain page */
+  sections: Array<{
+    /** Section title */
+    title: string;
+    /** Section description */
+    description: string;
+    /** List of points in the section */
+    points?: string[];
+  }>;
+  /** Call to action for the domain page */
+  cta?: {
+    title: string;
+    text: string;
+    href: string;
+  };
+}
+
+/**
+ * Contact page configuration.
+ */
+export interface Contact extends BasePageConfig {
+  /** The headline of the contact page */
+  headline: React.ReactNode;
+  /** The sub text which appears below the headline */
+  subline: React.ReactNode;
+  /** List of contact methods */
+  contactMethods: Array<{
+    /** Contact method title */
+    title: string;
+    /** Contact method description */
+    description: string;
+    /** Additional details for the contact method */
+    details?: string[];
+    /** Call to action for the contact method */
+    cta?: {
+      text: string;
+      href: string;
+    };
+  }>;
+  /** Contact form configuration */
+  form?: {
+    /** Form title */
+    title: string;
+    /** Form description */
+    description: string;
+    /** Form action URL */
+    action: string;
+  };
+}
+
+/**
+ * Login page configuration.
+ */
+export interface Login extends BasePageConfig {
+  /** The headline of the login page */
+  headline: React.ReactNode;
+  /** The sub text which appears below the headline */
+  subline: React.ReactNode;
+}
+
+/**
+ * Signup page configuration.
+ */
+export interface Signup extends BasePageConfig {
+  /** The headline of the signup page */
+  headline: React.ReactNode;
+  /** The sub text which appears below the headline */
+  subline: React.ReactNode;
+}
+
+/**
+ * Auth page configuration.
+ */
+export interface Auth extends BasePageConfig {
+  /** The headline of the auth page */
+  headline: React.ReactNode;
+  /** The sub text which appears below the headline */
+  subline: React.ReactNode;
+}
+
+/**
  * Blog page configuration.
  * @description Configuration for the Blog page, including metadata and navigation label.
  */

@@ -12,6 +12,8 @@ import {
   HiOutlineDocument,
   HiOutlineGlobeAsiaAustralia,
   HiOutlineRocketLaunch,
+  HiOutlineServer,
+  HiOutlineCloud,
 } from "react-icons/hi2";
 
 import {
@@ -57,6 +59,8 @@ export const iconLibrary: Record<string, IconType> = {
   nextjs: SiNextdotjs,
   supabase: SiSupabase,
   figma: SiFigma,
+  server: HiOutlineServer,
+  cloud: HiOutlineCloud,
 };
 
 export type IconLibrary = typeof iconLibrary;

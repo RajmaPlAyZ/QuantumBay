@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 
 import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery } from "@/resources";
-import { ThemeToggle } from "./ThemeToggle";
+import { about, contact, display, domain, login, person, routes, services, signup } from "@/resources";
 import styles from "./Header.module.scss";
+import { ThemeToggle } from "./ThemeToggle";
 
 type TimeDisplayProps = {
   timeZone: string;
@@ -109,59 +109,59 @@ export const Header = () => {
                   </Row>
                 </>
               )}
-              {routes["/work"] && (
+              {routes["/services"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="grid"
-                      href="/work"
-                      label={work.label}
-                      selected={pathname.startsWith("/work")}
+                      prefixIcon="server"
+                      href="/services"
+                      label={services.label}
+                      selected={pathname === "/services"}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="grid"
-                      href="/work"
-                      selected={pathname.startsWith("/work")}
+                      prefixIcon="server"
+                      href="/services"
+                      selected={pathname === "/services"}
                     />
                   </Row>
                 </>
               )}
-              {routes["/blog"] && (
+              {routes["/domain"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="book"
-                      href="/blog"
-                      label={blog.label}
-                      selected={pathname.startsWith("/blog")}
+                      prefixIcon="grid"
+                      href="/domain"
+                      label={domain.label}
+                      selected={pathname === "/domain"}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="book"
-                      href="/blog"
-                      selected={pathname.startsWith("/blog")}
+                      prefixIcon="grid"
+                      href="/domain"
+                      selected={pathname === "/domain"}
                     />
                   </Row>
                 </>
               )}
-              {routes["/gallery"] && (
+              {routes["/contact"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      label={gallery.label}
-                      selected={pathname.startsWith("/gallery")}
+                      prefixIcon="email"
+                      href="/contact"
+                      label={contact.label}
+                      selected={pathname === "/contact"}
                     />
                   </Row>
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
-                      prefixIcon="gallery"
-                      href="/gallery"
-                      selected={pathname.startsWith("/gallery")}
+                      prefixIcon="email"
+                      href="/contact"
+                      selected={pathname === "/contact"}
                     />
                   </Row>
                 </>
@@ -183,6 +183,27 @@ export const Header = () => {
             textVariant="body-default-s"
             gap="20"
           >
+            {routes["/login"] && (
+              <ToggleButton
+                prefixIcon="user"
+                href="/login"
+                label={login.label}
+                selected={pathname === "/login"}
+                variant="secondary"
+                size="s"
+              />
+            )}
+            {routes["/signup"] && (
+              <ToggleButton
+                prefixIcon="user"
+                href="/signup"
+                label={signup.label}
+                selected={pathname === "/signup"}
+                variant="primary"
+                size="s"
+              />
+            )}
+            <Line background="neutral-alpha-medium" vert maxHeight="24" />
             <Flex s={{ hide: true }}>
               {display.time && <TimeDisplay timeZone={person.location} />}
             </Flex>

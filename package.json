@@ -1,6 +1,7 @@
 {
-  "name": "@once-ui-system/magic-portfolio",
-  "version": "2.3.0",
+  "name": "quantumbay",
+  "version": "1.0.0",
+  "description": "Cloud & Hosting Solutions",
   "scripts": {
     "dev": "next dev",
     "export": "next export",

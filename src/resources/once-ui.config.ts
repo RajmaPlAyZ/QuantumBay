@@ -1,26 +1,29 @@
 import {
-  DataStyleConfig,
-  DisplayConfig,
-  EffectsConfig,
-  FontsConfig,
-  MailchimpConfig,
-  ProtectedRoutesConfig,
-  RoutesConfig,
-  SameAsConfig,
-  SchemaConfig,
-  StyleConfig,
+    DataStyleConfig,
+    DisplayConfig,
+    EffectsConfig,
+    FontsConfig,
+    MailchimpConfig,
+    ProtectedRoutesConfig,
+    RoutesConfig,
+    SameAsConfig,
+    SchemaConfig,
+    StyleConfig,
 } from "@/types";
 import { home } from "./index";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL: string = "https://demo.magic-portfolio.com";
+const baseURL: string = "https://quantumbay.com";
 
 const routes: RoutesConfig = {
   "/": true,
   "/about": true,
-  "/work": true,
-  "/blog": true,
-  "/gallery": true,
+  "/services": true,
+  "/domain": true,
+  "/contact": true,
+  "/login": true,
+  "/signup": true,
+  "/auth": true,
 };
 
 const display: DisplayConfig = {
@@ -31,13 +34,10 @@ const display: DisplayConfig = {
 
 // Enable password protection on selected routes
 // Set password in the .env file, refer to .env.example
-const protectedRoutes: ProtectedRoutesConfig = {
-  "/work/automate-design-handovers-with-a-figma-to-code-pipeline": true,
-};
+const protectedRoutes: ProtectedRoutesConfig = {};
 
 // Import and set font for each variant
-import { Geist } from "next/font/google";
-import { Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 
 const heading = Geist({
   variable: "--font-heading",
@@ -187,28 +187,19 @@ const mailchimp: MailchimpConfig = {
 const schema: SchemaConfig = {
   logo: "",
   type: "Organization",
-  name: "Once UI",
+  name: "Quantum Bay",
   description: home.description,
-  email: "lorant@once-ui.com",
+  email: "hello@quantumbay.com",
 };
 
 // social links
 const sameAs: SameAsConfig = {
-  threads: "https://www.threads.com/@once_ui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  twitter: "https://twitter.com/quantumbay",
+  linkedin: "https://www.linkedin.com/company/quantumbay/",
+  github: "https://github.com/quantumbay",
 };
 
 export {
-  display,
-  mailchimp,
-  routes,
-  protectedRoutes,
-  baseURL,
-  fonts,
-  style,
-  schema,
-  sameAs,
-  effects,
-  dataStyle,
+    baseURL, dataStyle, display, effects, fonts, mailchimp, protectedRoutes, routes, sameAs, schema, style
 };
+
