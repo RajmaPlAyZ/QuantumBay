@@ -1,13 +1,13 @@
 import { baseURL, domain } from "@/resources";
 import {
-    Button,
-    Column,
-    Heading,
-    Meta,
-    RevealFx,
-    Row,
-    Schema,
-    Text,
+  Button,
+  Column,
+  Heading,
+  Meta,
+  RevealFx,
+  Row,
+  Schema,
+  Text,
 } from "@once-ui-system/core";
 
 export async function generateMetadata() {
@@ -67,8 +67,9 @@ export default function Domain() {
                 border="neutral-alpha-medium"
                 radius="l"
                 padding="xl"
+
                 gap="l"
-                minHeight="320"
+                minHeight={320}
                 style={{
                   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
                   transition: 'all 0.3s ease',

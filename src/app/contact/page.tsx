@@ -2,13 +2,13 @@
 
 import { baseURL, contact } from "@/resources";
 import {
-  Button,
-  Column,
-  Heading,
-  RevealFx,
-  Row,
-  Schema,
-  Text
+    Button,
+    Column,
+    Heading,
+    RevealFx,
+    Row,
+    Schema,
+    Text
 } from "@once-ui-system/core";
 import { useState } from "react";
 
@@ -150,7 +150,7 @@ export default function Contact() {
               radius="l"
               padding="xl"
               gap="l"
-              minHeight="250"
+              minHeight={250}
               style={{
                 boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
                 transition: 'all 0.3s ease',

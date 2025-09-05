@@ -194,9 +194,9 @@ const schema: SchemaConfig = {
 
 // social links
 const sameAs: SameAsConfig = {
-  twitter: "https://twitter.com/quantumbay",
+  threads: "https://threads.net/quantumbay",
   linkedin: "https://www.linkedin.com/company/quantumbay/",
-  github: "https://github.com/quantumbay",
+  discord: "https://discord.gg/quantumbay",
 };
 
 export {

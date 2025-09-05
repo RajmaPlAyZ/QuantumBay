@@ -189,7 +189,7 @@ export const Header = () => {
                 href="/login"
                 label={login.label}
                 selected={pathname === "/login"}
-                variant="secondary"
+                variant="outline"
                 size="s"
               />
             )}
@@ -199,7 +199,7 @@ export const Header = () => {
                 href="/signup"
                 label={signup.label}
                 selected={pathname === "/signup"}
-                variant="primary"
+                variant="outline"
                 size="s"
               />
             )}
