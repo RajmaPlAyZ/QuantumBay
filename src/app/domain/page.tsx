@@ -35,15 +35,6 @@ export default function Domain() {
       {/* Header Section */}
       <Column fillWidth horizontal="center" gap="l">
         <Row horizontal="center" gap="m" vertical="center">
-          <img 
-            src="/images/avatar.jpg" 
-            alt="Quantum Bay Logo" 
-            style={{ 
-              width: '48px', 
-              height: '48px', 
-              borderRadius: '50%'
-            }} 
-          />
           <Column gap="s" horizontal="center">
             <Heading wrap="balance" variant="display-strong-l">
               {domain.headline}
@@ -62,90 +53,117 @@ export default function Domain() {
           {domain.sections.slice(0, 3).map((section, index) => (
             <RevealFx key={index} translateY="16" delay={index * 0.1}>
               <Column
-                flex={1}
+                className="domain-card"
                 background="surface"
                 border="neutral-alpha-medium"
                 radius="l"
-                padding="xl"
-
-                gap="l"
-                minHeight={320}
+                padding="l"
+                gap="m"
                 style={{
-                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
-                  transition: 'all 0.3s ease',
-                  border: '2px solid var(--neutral-alpha-weak)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  width: '350px',
+                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+                  transition: "all 0.3s ease",
+                  border: "2px solid var(--neutral-alpha-weak)",
+                  position: "relative",
+                  overflow: "hidden",
+                  width: "350px",
                   flexShrink: 0,
                 }}
               >
                 {/* Decorative Top Border */}
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  height: '4px',
-                  background: 'linear-gradient(90deg, var(--brand-alpha-strong), var(--brand-alpha-medium))',
-                  borderRadius: 'var(--radius-l) var(--radius-l) 0 0'
-                }} />
-                
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: "4px",
+                    background:
+                      "linear-gradient(90deg, var(--brand-alpha-strong), var(--brand-alpha-medium))",
+                    borderRadius: "var(--radius-l) var(--radius-l) 0 0",
+                  }}
+                />
+
                 {/* Section Header */}
                 <Column gap="m" horizontal="center" align="center" paddingTop="m">
-                  <div style={{
-                    width: '60px',
-                    height: '60px',
-                    borderRadius: '50%',
-                    background: 'linear-gradient(135deg, var(--brand-alpha-weak), var(--brand-alpha-medium))',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '1rem'
-                  }}>
-                    <span style={{
-                      fontSize: '1.5rem',
-                      color: 'var(--brand-on-background-strong)',
-                      fontWeight: 'bold'
-                    }}>
-                      {index + 1}
-                    </span>
+                  <div
+                    style={{
+                      width: "48px",
+                      height: "48px",
+                      borderRadius: "50%",
+                      background:
+                        "linear-gradient(135deg, var(--brand-alpha-strong), var(--brand-alpha-medium))",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "var(--brand-on-background-strong)",
+                      fontSize: "1.2rem",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {index + 1}
                   </div>
-                  <Heading variant="heading-strong-l" align="center">
+                  <Heading variant="heading-strong-m" align="center">
                     {section.title}
                   </Heading>
-                  <Text onBackground="neutral-weak" variant="body-default-l" align="center">
-                    {section.description}
-                  </Text>
                 </Column>
 
-                {/* Points List */}
+                {/* Section Description */}
+                <Text
+                  onBackground="neutral-weak"
+                  variant="body-default-m"
+                  align="left"
+                  paddingX="m"
+                  style={{ lineHeight: "1.6" }}
+                >
+                  {section.description}
+                </Text>
+
+                {/* Features List */}
                 {section.points && (
                   <Column gap="m" flex={1}>
-                    <Text variant="heading-default-s" onBackground="neutral-strong" align="center">
+                    <Text
+                      variant="heading-default-s"
+                      onBackground="neutral-strong"
+                      align="left"
+                    >
                       Key Features:
                     </Text>
-                    <Column gap="s" fillWidth>
+                    <Column gap="s" paddingX="m">
                       {section.points.map((point, pointIndex) => (
-                        <Row key={pointIndex} gap="s" vertical="center" fillWidth>
-                          <div style={{ 
-                            color: 'var(--brand-on-background-strong)', 
-                            fontSize: '1.2rem',
-                            minWidth: '24px',
-                            height: '24px',
-                            borderRadius: '50%',
-                            background: 'var(--brand-alpha-weak)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            flexShrink: 0
-                          }}>✓</div>
-                          <Text variant="body-default-m" style={{ flex: 1 }}>{point}</Text>
+                        <Row key={pointIndex} gap="s" vertical="center">
+                          <div
+                            style={{
+                              color: "var(--brand-on-background-strong)",
+                              fontSize: "1.1rem",
+                              minWidth: "22px",
+                              height: "22px",
+                              borderRadius: "50%",
+                              background: "var(--brand-alpha-weak)",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              flexShrink: 0,
+                            }}
+                          >
+                            ✓
+                          </div>
+                          <Text
+                            variant="body-default-m"
+                            style={{
+                              lineHeight: "1.5",
+                              wordBreak: "keep-all",
+                              overflowWrap: "break-word",
+                              whiteSpace: "normal",
+                            }}
+                          >
+                            {point}
+                          </Text>
                         </Row>
                       ))}
                     </Column>
                   </Column>
                 )}
+
               </Column>
             </RevealFx>
           ))}
@@ -156,87 +174,117 @@ export default function Domain() {
           <Row horizontal="center" paddingTop="l">
             <RevealFx translateY="16" delay={0.4}>
               <Column
+                className="domain-card"
                 background="surface"
                 border="neutral-alpha-medium"
                 radius="l"
-                padding="xl"
-                gap="l"
+                padding="l"
+                gap="m"
                 style={{
-                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
-                  transition: 'all 0.3s ease',
-                  border: '2px solid var(--neutral-alpha-weak)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  width: '350px',
+                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+                  transition: "all 0.3s ease",
+                  border: "2px solid var(--neutral-alpha-weak)",
+                  position: "relative",
+                  overflow: "hidden",
+                  width: "350px",
                   flexShrink: 0,
                 }}
               >
                 {/* Decorative Top Border */}
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  height: '4px',
-                  background: 'linear-gradient(90deg, var(--brand-alpha-strong), var(--brand-alpha-medium))',
-                  borderRadius: 'var(--radius-l) var(--radius-l) 0 0'
-                }} />
-                
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: "4px",
+                    background:
+                      "linear-gradient(90deg, var(--brand-alpha-strong), var(--brand-alpha-medium))",
+                    borderRadius: "var(--radius-l) var(--radius-l) 0 0",
+                  }}
+                />
+
                 {/* Section Header */}
                 <Column gap="m" horizontal="center" align="center" paddingTop="m">
-                  <div style={{
-                    width: '60px',
-                    height: '60px',
-                    borderRadius: '50%',
-                    background: 'linear-gradient(135deg, var(--brand-alpha-weak), var(--brand-alpha-medium))',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '1rem'
-                  }}>
-                    <span style={{
-                      fontSize: '1.5rem',
-                      color: 'var(--brand-on-background-strong)',
-                      fontWeight: 'bold'
-                    }}>
-                      4
-                    </span>
+                  <div
+                    style={{
+                      width: "48px",
+                      height: "48px",
+                      borderRadius: "50%",
+                      background:
+                        "linear-gradient(135deg, var(--brand-alpha-strong), var(--brand-alpha-medium))",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "var(--brand-on-background-strong)",
+                      fontSize: "1.2rem",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    4
                   </div>
-                  <Heading variant="heading-strong-l" align="center">
+                  <Heading variant="heading-strong-m" align="center">
                     {domain.sections[3].title}
                   </Heading>
-                  <Text onBackground="neutral-weak" variant="body-default-l" align="center">
-                    {domain.sections[3].description}
-                  </Text>
                 </Column>
 
-                {/* Points List */}
+                {/* Section Description */}
+                <Text
+                  onBackground="neutral-weak"
+                  variant="body-default-m"
+                  align="left"
+                  paddingX="m"
+                  style={{ lineHeight: "1.6" }}
+                >
+                  {domain.sections[3].description}
+                </Text>
+
+                {/* Features List */}
                 {domain.sections[3].points && (
                   <Column gap="m" flex={1}>
-                    <Text variant="heading-default-s" onBackground="neutral-strong" align="center">
+                    <Text
+                      variant="heading-default-s"
+                      onBackground="neutral-strong"
+                      align="left"
+                    >
                       Key Features:
                     </Text>
-                    <Column gap="s" fillWidth>
+                    <Column gap="s" paddingX="m">
                       {domain.sections[3].points.map((point, pointIndex) => (
-                        <Row key={pointIndex} gap="s" vertical="center" fillWidth>
-                          <div style={{ 
-                            color: 'var(--brand-on-background-strong)', 
-                            fontSize: '1.2rem',
-                            minWidth: '24px',
-                            height: '24px',
-                            borderRadius: '50%',
-                            background: 'var(--brand-alpha-weak)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            flexShrink: 0
-                          }}>✓</div>
-                          <Text variant="body-default-m" style={{ flex: 1 }}>{point}</Text>
+                        <Row key={pointIndex} gap="s" vertical="center">
+                          <div
+                            style={{
+                              color: "var(--brand-on-background-strong)",
+                              fontSize: "1.1rem",
+                              minWidth: "22px",
+                              height: "22px",
+                              borderRadius: "50%",
+                              background: "var(--brand-alpha-weak)",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              flexShrink: 0,
+                            }}
+                          >
+                            ✓
+                          </div>
+                          <Text
+                            variant="body-default-m"
+                            style={{
+                              lineHeight: "1.5",
+                              wordBreak: "keep-all",
+                              overflowWrap: "break-word",
+                              whiteSpace: "normal",
+                            }}
+                          >
+                            {point}
+                          </Text>
                         </Row>
                       ))}
                     </Column>
                   </Column>
                 )}
+
               </Column>
             </RevealFx>
           </Row>

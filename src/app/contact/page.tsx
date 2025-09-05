@@ -2,13 +2,13 @@
 
 import { baseURL, contact } from "@/resources";
 import {
-    Button,
-    Column,
-    Heading,
-    RevealFx,
-    Row,
-    Schema,
-    Text
+  Button,
+  Column,
+  Heading,
+  RevealFx,
+  Row,
+  Schema,
+  Text
 } from "@once-ui-system/core";
 import { useState } from "react";
 
@@ -140,75 +140,277 @@ export default function Contact() {
       )}
 
       {/* Contact Methods Grid */}
-      <Row fillWidth gap="l" s={{ direction: "column" }}>
-        {contact.contactMethods.map((method, index) => (
-          <RevealFx key={index} translateY="16" delay={index * 0.1}>
-            <Column
-              flex={1}
-              background="surface"
-              border="neutral-alpha-medium"
-              radius="l"
-              padding="xl"
-              gap="l"
-              minHeight={250}
-              style={{
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
-                transition: 'all 0.3s ease',
-                border: '2px solid var(--neutral-alpha-weak)',
-                position: 'relative',
-                overflow: 'hidden'
-              }}
-            >
-              {/* Decorative Top Border */}
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                height: '4px',
-                background: 'linear-gradient(90deg, var(--brand-alpha-strong), var(--brand-alpha-medium))',
-                borderRadius: 'var(--radius-l) var(--radius-l) 0 0'
-              }} />
-              
-              {/* Method Header */}
-              <Column gap="m" horizontal="center" align="center" paddingTop="m">
-                <Heading variant="heading-strong-m" align="center">
-                  {method.title}
-                </Heading>
-                <Text onBackground="neutral-weak" variant="body-default-l" align="center">
+      <Column fillWidth gap="xl" horizontal="center">
+        {/* First Row - 3 Cards */}
+        <Row gap="l" horizontal="center" s={{ direction: "column" }}>
+          {contact.contactMethods.slice(0, 3).map((method, index) => (
+            <RevealFx key={index} translateY="16" delay={index * 0.1}>
+              <Column
+                className="contact-card"
+                background="surface"
+                border="neutral-alpha-medium"
+                radius="l"
+                padding="l"
+                gap="m"
+                style={{
+                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+                  transition: "all 0.3s ease",
+                  border: "2px solid var(--neutral-alpha-weak)",
+                  position: "relative",
+                  overflow: "hidden",
+                  width: "350px",
+                  flexShrink: 0,
+                }}
+              >
+                {/* Decorative Top Border */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: "4px",
+                    background:
+                      "linear-gradient(90deg, var(--brand-alpha-strong), var(--brand-alpha-medium))",
+                    borderRadius: "var(--radius-l) var(--radius-l) 0 0",
+                  }}
+                />
+
+                {/* Method Header */}
+                <Column gap="m" horizontal="center" align="center" paddingTop="m">
+                  <div
+                    style={{
+                      width: "48px",
+                      height: "48px",
+                      borderRadius: "50%",
+                      background:
+                        "linear-gradient(135deg, var(--brand-alpha-strong), var(--brand-alpha-medium))",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "var(--brand-on-background-strong)",
+                      fontSize: "1.2rem",
+                    }}
+                  >
+                    📞
+                  </div>
+                  <Heading variant="heading-strong-m" align="center">
+                    {method.title}
+                  </Heading>
+                </Column>
+
+                {/* Method Description */}
+                <Text
+                  onBackground="neutral-weak"
+                  variant="body-default-m"
+                  align="left"
+                  paddingX="m"
+                  style={{ lineHeight: "1.6" }}
+                >
                   {method.description}
                 </Text>
+
+                {/* Details List */}
+                {method.details && (
+                  <Column gap="m" flex={1}>
+                    <Text
+                      variant="heading-default-s"
+                      onBackground="neutral-strong"
+                      align="left"
+                    >
+                      Contact Details:
+                    </Text>
+                    <Column gap="s" paddingX="m">
+                      {method.details.map((detail, detailIndex) => (
+                        <Row key={detailIndex} gap="s" vertical="center">
+                          <div
+                            style={{
+                              color: "var(--brand-on-background-strong)",
+                              fontSize: "1.1rem",
+                              minWidth: "22px",
+                              height: "22px",
+                              borderRadius: "50%",
+                              background: "var(--brand-alpha-weak)",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              flexShrink: 0,
+                            }}
+                          >
+                            ✓
+                          </div>
+                          <Text
+                            variant="body-default-m"
+                            style={{
+                              lineHeight: "1.5",
+                              wordBreak: "keep-all",
+                              overflowWrap: "break-word",
+                              whiteSpace: "normal",
+                            }}
+                          >
+                            {detail}
+                          </Text>
+                        </Row>
+                      ))}
+                    </Column>
+                  </Column>
+                )}
+
+                {/* Call to Action */}
+                {method.cta && (
+                  <Column horizontal="center" paddingTop="m">
+                    <Button
+                      href={method.cta.href}
+                      variant="primary"
+                      size="m"
+                      weight="default"
+                      arrowIcon
+                    >
+                      {method.cta.text}
+                    </Button>
+                  </Column>
+                )}
               </Column>
+            </RevealFx>
+          ))}
+        </Row>
 
-              {/* Details List */}
-              {method.details && (
-                <Column gap="s" flex={1}>
-                  {method.details.map((detail, detailIndex) => (
-                    <Row key={detailIndex} gap="s" vertical="center" horizontal="center" paddingX="m">
-                      <Text variant="body-default-m" align="center">{detail}</Text>
-                    </Row>
-                  ))}
-                </Column>
-              )}
+        {/* Second Row - Additional Cards if more than 3 */}
+        {contact.contactMethods.length > 3 && (
+          <Row gap="l" horizontal="center" s={{ direction: "column" }}>
+            {contact.contactMethods.slice(3).map((method, index) => (
+              <RevealFx key={index + 3} translateY="16" delay={(index + 3) * 0.1}>
+                <Column
+                  className="contact-card"
+                  background="surface"
+                  border="neutral-alpha-medium"
+                  radius="l"
+                  padding="l"
+                  gap="m"
+                  style={{
+                    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
+                    transition: "all 0.3s ease",
+                    border: "2px solid var(--neutral-alpha-weak)",
+                    position: "relative",
+                    overflow: "hidden",
+                    width: "350px",
+                    flexShrink: 0,
+                  }}
+                >
+                  {/* Decorative Top Border */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: "4px",
+                      background:
+                        "linear-gradient(90deg, var(--brand-alpha-strong), var(--brand-alpha-medium))",
+                      borderRadius: "var(--radius-l) var(--radius-l) 0 0",
+                    }}
+                  />
 
-              {/* Call to Action */}
-              {method.cta && (
-                <Row horizontal="center" paddingTop="m">
-                  <Button
-                    href={method.cta.href}
-                    variant="secondary"
-                    size="m"
-                    weight="default"
-                    arrowIcon
+                  {/* Method Header */}
+                  <Column gap="m" horizontal="center" align="center" paddingTop="m">
+                    <div
+                      style={{
+                        width: "48px",
+                        height: "48px",
+                        borderRadius: "50%",
+                        background:
+                          "linear-gradient(135deg, var(--brand-alpha-strong), var(--brand-alpha-medium))",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "var(--brand-on-background-strong)",
+                        fontSize: "1.2rem",
+                      }}
+                    >
+                      📞
+                    </div>
+                    <Heading variant="heading-strong-m" align="center">
+                      {method.title}
+                    </Heading>
+                  </Column>
+
+                  {/* Method Description */}
+                  <Text
+                    onBackground="neutral-weak"
+                    variant="body-default-m"
+                    align="left"
+                    paddingX="m"
+                    style={{ lineHeight: "1.6" }}
                   >
-                    {method.cta.text}
-                  </Button>
-                </Row>
-              )}
-            </Column>
-          </RevealFx>
-        ))}
-      </Row>
+                    {method.description}
+                  </Text>
+
+                  {/* Details List */}
+                  {method.details && (
+                    <Column gap="m" flex={1}>
+                      <Text
+                        variant="heading-default-s"
+                        onBackground="neutral-strong"
+                        align="left"
+                      >
+                        Contact Details:
+                      </Text>
+                      <Column gap="s" paddingX="m">
+                        {method.details.map((detail, detailIndex) => (
+                          <Row key={detailIndex} gap="s" vertical="center">
+                            <div
+                              style={{
+                                color: "var(--brand-on-background-strong)",
+                                fontSize: "1.1rem",
+                                minWidth: "22px",
+                                height: "22px",
+                                borderRadius: "50%",
+                                background: "var(--brand-alpha-weak)",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                flexShrink: 0,
+                              }}
+                            >
+                              ✓
+                            </div>
+                            <Text
+                              variant="body-default-m"
+                              style={{
+                                lineHeight: "1.5",
+                                wordBreak: "keep-all",
+                                overflowWrap: "break-word",
+                                whiteSpace: "normal",
+                              }}
+                            >
+                              {detail}
+                            </Text>
+                          </Row>
+                        ))}
+                      </Column>
+                    </Column>
+                  )}
+
+                  {/* Call to Action */}
+                  {method.cta && (
+                    <Column horizontal="center" paddingTop="m">
+                      <Button
+                        href={method.cta.href}
+                        variant="primary"
+                        size="m"
+                        weight="default"
+                        arrowIcon
+                      >
+                        {method.cta.text}
+                      </Button>
+                    </Column>
+                  )}
+                </Column>
+              </RevealFx>
+            ))}
+          </Row>
+        )}
+      </Column>
 
       {/* Contact Form Section */}
       {contact.form && (

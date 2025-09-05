@@ -1,15 +1,15 @@
 import { Mailchimp } from "@/components";
 import { about, baseURL, home, person } from "@/resources";
 import {
-    Badge,
-    Button,
-    Column,
-    Heading,
-    Meta,
-    RevealFx,
-    Row,
-    Schema,
-    Text
+  Badge,
+  Button,
+  Column,
+  Heading,
+  Meta,
+  RevealFx,
+  Row,
+  Schema,
+  Text
 } from "@once-ui-system/core";
 
 export async function generateMetadata() {
@@ -94,16 +94,6 @@ export default function Home() {
                 arrowIcon
               >
                 <Row gap="8" vertical="center" paddingRight="4">
-                  <img 
-                    src="/images/avatar.jpg" 
-                    alt="Quantum Bay Logo" 
-                    style={{ 
-                      width: '24px', 
-                      height: '24px', 
-                      borderRadius: '50%',
-                      marginRight: '8px'
-                    }} 
-                  />
                   {about.label}
                 </Row>
               </Button>
