@@ -2,20 +2,40 @@
 
 .mask {
     pointer-events: none;
+    -webkit-backdrop-filter: blur(0.5rem);
     backdrop-filter: blur(0.5rem);
     background: linear-gradient(to bottom, var(--page-background), var(--static-transparent));
+    -webkit-mask-image: linear-gradient(rgba(0,0,0) 25%, rgba(0, 0, 0, 0) 100%);
     mask-image: linear-gradient(rgba(0,0,0) 25%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%;
 }
+
 
 @media (max-width: breakpoints.$s) {
     .position {
         top: auto;
         bottom: var(--static-space-24);
+        padding: var(--static-space-8) var(--static-space-4);
     }
 
     .mask {
         transform: rotate(180deg);
         bottom: 0;
     }
+    
+    /* Ensure main nav bar doesn't get too crowded */
+    .position > div:first-child {
+        display: none; /* Hide location on mobile */
+    }
+    
+    .position > div:nth-child(2) {
+        padding: 0 var(--static-space-2);
+    }
+    
+    .position > div:nth-child(2) > div {
+        padding: var(--static-space-4);
+        gap: var(--static-space-2);
+    }
 }
+

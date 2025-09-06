@@ -1,13 +1,13 @@
 import { baseURL, domain } from "@/resources";
 import {
-  Button,
-  Column,
-  Heading,
-  Meta,
-  RevealFx,
-  Row,
-  Schema,
-  Text,
+    Button,
+    Column,
+    Heading,
+    Meta,
+    RevealFx,
+    Row,
+    Schema,
+    Text,
 } from "@once-ui-system/core";
 
 export async function generateMetadata() {
@@ -36,7 +36,7 @@ export default function Domain() {
       <Column fillWidth horizontal="center" gap="l">
         <Row horizontal="center" gap="m" vertical="center">
           <Column gap="s" horizontal="center">
-            <Heading wrap="balance" variant="display-strong-l">
+            <Heading wrap="balance" variant="display-strong-l" align="center">
               {domain.headline}
             </Heading>
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl" align="center">
@@ -49,7 +49,7 @@ export default function Domain() {
       {/* Domain Services Grid */}
       <Column fillWidth gap="xl" horizontal="center">
         {/* First Row - 3 Cards */}
-        <Row gap="l" horizontal="center" s={{ direction: "column" }}>
+        <Row gap="l" horizontal="center" className="domain-grid">
           {domain.sections.slice(0, 3).map((section, index) => (
             <RevealFx key={index} translateY="16" delay={index * 0.1}>
               <Column
@@ -66,6 +66,7 @@ export default function Domain() {
                   position: "relative",
                   overflow: "hidden",
                   width: "350px",
+                  maxWidth: "100%",
                   flexShrink: 0,
                 }}
               >
@@ -187,6 +188,7 @@ export default function Domain() {
                   position: "relative",
                   overflow: "hidden",
                   width: "350px",
+                  maxWidth: "100%",
                   flexShrink: 0,
                 }}
               >
@@ -294,9 +296,10 @@ export default function Domain() {
       {/* Call to Action Section */}
       {domain.cta && (
         <RevealFx translateY="16" delay={0.6}>
-          <Row fillWidth gap="xl" s={{ direction: "column" }}>
+          <Row fillWidth gap="xl" className="cta-cards-container">
             {/* Domain CTA Card */}
             <Column
+              className="cta-card"
               background="surface"
               border="neutral-alpha-medium"
               radius="l"
@@ -327,7 +330,7 @@ export default function Domain() {
               <Heading variant="heading-strong-l" align="center">
                 {domain.cta.title}
               </Heading>
-              <Row gap="m" s={{ direction: "column" }}>
+              <Row gap="m" className="cta-buttons">
                 <Button
                   href={domain.cta.href}
                   variant="primary"
@@ -351,6 +354,7 @@ export default function Domain() {
 
             {/* Newsletter Card */}
             <Column
+              className="cta-card"
               background="surface"
               border="neutral-alpha-medium"
               radius="l"
@@ -391,7 +395,7 @@ export default function Domain() {
               
               {/* Newsletter Form */}
               <Column gap="m" fillWidth>
-                <Row gap="s" s={{ direction: "column" }}>
+                <Row gap="s" className="newsletter-form">
                   <input
                     type="email"
                     placeholder="Enter your email"
@@ -419,6 +423,12 @@ export default function Domain() {
                   variant="body-default-s"
                   onBackground="neutral-weak"
                   align="center"
+                  style={{ 
+                    paddingTop: "0.75rem",
+                    paddingBottom: "0.5rem",
+                    lineHeight: "1.4",
+                    marginBottom: "0.5rem"
+                  }}
                 >
                   Get insights on domain management, DNS configuration, and hosting best practices.
                 </Text>

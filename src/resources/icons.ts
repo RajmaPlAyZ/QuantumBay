@@ -1,37 +1,38 @@
 import { IconType } from "react-icons";
 
 import {
-  HiArrowUpRight,
-  HiOutlineLink,
-  HiArrowTopRightOnSquare,
-  HiEnvelope,
-  HiCalendarDays,
-  HiArrowRight,
-  HiOutlineEye,
-  HiOutlineEyeSlash,
-  HiOutlineDocument,
-  HiOutlineGlobeAsiaAustralia,
-  HiOutlineRocketLaunch,
-  HiOutlineServer,
-  HiOutlineCloud,
+    HiArrowRight,
+    HiArrowTopRightOnSquare,
+    HiArrowUpRight,
+    HiCalendarDays,
+    HiEnvelope,
+    HiOutlineCloud,
+    HiOutlineDocument,
+    HiOutlineEye,
+    HiOutlineEyeSlash,
+    HiOutlineGlobeAsiaAustralia,
+    HiOutlineLink,
+    HiOutlineRocketLaunch,
+    HiOutlineServer,
+    HiUser,
 } from "react-icons/hi2";
 
 import {
-  PiHouseDuotone,
-  PiUserCircleDuotone,
-  PiGridFourDuotone,
-  PiBookBookmarkDuotone,
-  PiImageDuotone,
+    PiBookBookmarkDuotone,
+    PiGridFourDuotone,
+    PiHouseDuotone,
+    PiImageDuotone,
+    PiUserCircleDuotone,
 } from "react-icons/pi";
 
 import {
-  SiJavascript,
-  SiNextdotjs,
-  SiFigma,
-  SiSupabase,
+    SiFigma,
+    SiJavascript,
+    SiNextdotjs,
+    SiSupabase,
 } from "react-icons/si";
 
-import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads } from "react-icons/fa6";
+import { FaDiscord, FaGithub, FaLinkedin, FaThreads, FaX } from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
   arrowUpRight: HiArrowUpRight,
@@ -39,6 +40,7 @@ export const iconLibrary: Record<string, IconType> = {
   email: HiEnvelope,
   globe: HiOutlineGlobeAsiaAustralia,
   person: PiUserCircleDuotone,
+  user: HiUser,
   grid: PiGridFourDuotone,
   book: PiBookBookmarkDuotone,
   openLink: HiOutlineLink,
@@ -51,6 +53,7 @@ export const iconLibrary: Record<string, IconType> = {
   github: FaGithub,
   linkedin: FaLinkedin,
   x: FaX,
+  twitter: FaX, // Map twitter to x icon
   threads: FaThreads,
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
   document: HiOutlineDocument,

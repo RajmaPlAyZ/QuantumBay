@@ -1,6 +1,5 @@
 import { baseURL, login } from "@/resources";
 import {
-    Button,
     Column,
     Heading,
     Meta,
@@ -9,6 +8,7 @@ import {
     Schema,
     Text,
 } from "@once-ui-system/core";
+import LoginForm from "./LoginForm";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -22,7 +22,7 @@ export async function generateMetadata() {
 
 export default function Login() {
   return (
-    <Column maxWidth="s" gap="xl" paddingY="12" horizontal="center">
+    <Column maxWidth="s" gap="xl" paddingY="12" horizontal="center" paddingX="m">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -62,57 +62,7 @@ export default function Login() {
               Access your hosting dashboard and manage your services
             </Text>
           </Column>
-          <form action="/api/authenticate" method="POST">
-            <Column gap="m">
-              <Column gap="s">
-                <Text variant="label-default-s">Email</Text>
-                <input
-                  type="email"
-                  name="email"
-                  id="login-email"
-                  required
-                  placeholder="Enter your email address"
-                  style={{
-                    padding: '0.75rem',
-                    border: '1px solid var(--neutral-alpha-weak)',
-                    borderRadius: 'var(--radius-m)',
-                    background: 'var(--surface-background)',
-                    color: 'var(--neutral-on-background-strong)',
-                    fontSize: 'var(--body-default-m)',
-                  }}
-                />
-              </Column>
-              <Column gap="s">
-                <Text variant="label-default-s">Password</Text>
-                <input
-                  type="password"
-                  name="password"
-                  id="login-password"
-                  required
-                  placeholder="Enter your password"
-                  style={{
-                    padding: '0.75rem',
-                    border: '1px solid var(--neutral-alpha-weak)',
-                    borderRadius: 'var(--radius-m)',
-                    background: 'var(--surface-background)',
-                    color: 'var(--neutral-on-background-strong)',
-                    fontSize: 'var(--body-default-m)',
-                  }}
-                />
-              </Column>
-              <Row horizontal="end">
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="m"
-                  weight="default"
-                  arrowIcon
-                >
-                  Sign In
-                </Button>
-              </Row>
-            </Column>
-          </form>
+          <LoginForm />
           <Row horizontal="center" paddingTop="m">
             <Text variant="body-default-s" onBackground="neutral-weak" align="center">
               Don't have an account?{" "}

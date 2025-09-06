@@ -52,3 +52,112 @@
   --scheme-neutral-600-50: rgba(137,152,159,0.5);
   /*
 }*/
+
+/* Responsive styles for service cards */
+@media (max-width: 768px) {
+  .services-grid {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .service-card {
+    width: 100% !important;
+    max-width: 350px !important;
+  }
+}
+
+/* Responsive styles for CTA cards */
+@media (max-width: 768px) {
+  .cta-cards-container {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .cta-card {
+    width: 100% !important;
+    max-width: 500px !important;
+  }
+  
+  .cta-buttons {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .cta-buttons button {
+    width: 100% !important;
+    max-width: 300px !important;
+  }
+  
+  .newsletter-form {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .newsletter-form input {
+    width: 100% !important;
+    max-width: 300px !important;
+  }
+  
+  .newsletter-form button {
+    width: 100% !important;
+    max-width: 300px !important;
+  }
+  
+  /* Ensure subtext is visible and properly positioned */
+  .cta-card .newsletter-form + p,
+  .cta-card .newsletter-form + div p {
+    margin-top: 0.5rem !important;
+    padding: 0.5rem 1rem !important;
+    line-height: 1.4 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  /* Ensure CTA cards have enough bottom padding for subtext */
+  .cta-card {
+    padding-bottom: 2rem !important;
+  }
+  
+  /* Make sure newsletter form container has proper spacing */
+  .cta-card .newsletter-form {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+/* Responsive styles for domain cards */
+@media (max-width: 768px) {
+  .domain-grid {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .domain-card {
+    width: 100% !important;
+    max-width: 350px !important;
+  }
+}
+
+/* Responsive styles for contact cards and form */
+@media (max-width: 768px) {
+  .contact-grid {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .contact-card {
+    width: 100% !important;
+    max-width: 350px !important;
+  }
+  
+  .form-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  
+  .form-row .column {
+    flex: 1 !important;
+    width: 100% !important;
+  }
+}

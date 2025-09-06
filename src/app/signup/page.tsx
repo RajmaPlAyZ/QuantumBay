@@ -22,7 +22,7 @@ export async function generateMetadata() {
 
 export default function Signup() {
   return (
-    <Column maxWidth="s" gap="xl" paddingY="12" horizontal="center">
+    <Column maxWidth="s" gap="xl" paddingY="12" horizontal="center" paddingX="m">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -64,7 +64,7 @@ export default function Signup() {
           </Column>
           <form action="/api/register" method="POST">
             <Column gap="m">
-              <Row gap="m" s={{ direction: "column" }}>
+              <Row gap="m">
                 <Column flex={1} gap="s">
                   <Text variant="label-default-s">First Name</Text>
                   <input
@@ -80,6 +80,8 @@ export default function Signup() {
                       background: 'var(--surface-background)',
                       color: 'var(--neutral-on-background-strong)',
                       fontSize: 'var(--body-default-m)',
+                      width: '100%',
+                      boxSizing: 'border-box',
                     }}
                   />
                 </Column>
@@ -98,6 +100,8 @@ export default function Signup() {
                       background: 'var(--surface-background)',
                       color: 'var(--neutral-on-background-strong)',
                       fontSize: 'var(--body-default-m)',
+                      width: '100%',
+                      boxSizing: 'border-box',
                     }}
                   />
                 </Column>
@@ -117,6 +121,8 @@ export default function Signup() {
                     background: 'var(--surface-background)',
                     color: 'var(--neutral-on-background-strong)',
                     fontSize: 'var(--body-default-m)',
+                    width: '100%',
+                    boxSizing: 'border-box',
                   }}
                 />
               </Column>
@@ -135,6 +141,8 @@ export default function Signup() {
                     background: 'var(--surface-background)',
                     color: 'var(--neutral-on-background-strong)',
                     fontSize: 'var(--body-default-m)',
+                    width: '100%',
+                    boxSizing: 'border-box',
                   }}
                 />
               </Column>
@@ -153,6 +161,8 @@ export default function Signup() {
                     background: 'var(--surface-background)',
                     color: 'var(--neutral-on-background-strong)',
                     fontSize: 'var(--body-default-m)',
+                    width: '100%',
+                    boxSizing: 'border-box',
                   }}
                 />
               </Column>
@@ -163,6 +173,7 @@ export default function Signup() {
                   size="m"
                   weight="default"
                   arrowIcon
+                  fillWidth
                 >
                   Create Account
                 </Button>

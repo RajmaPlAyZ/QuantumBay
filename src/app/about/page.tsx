@@ -2,18 +2,18 @@ import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import { about, baseURL, person, social } from "@/resources";
 import {
-    Avatar,
-    Button,
-    Column,
-    Heading,
-    Icon,
-    IconButton,
-    Media,
-    Meta,
-    Row,
-    Schema,
-    Tag,
-    Text,
+  Avatar,
+  Button,
+  Column,
+  Heading,
+  Icon,
+  IconButton,
+  Media,
+  Meta,
+  Row,
+  Schema,
+  Tag,
+  Text,
 } from "@once-ui-system/core";
 import React from "react";
 
@@ -67,16 +67,16 @@ export default function About() {
       />
       {about.tableOfContent.display && (
         <Column
-          left="0"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
-          position="fixed"
-          paddingLeft="24"
-          gap="32"
-          s={{ hide: true }}
+        className={styles.sidebar}
+        minWidth={200}
+        paddingLeft="24"
+        gap="32"
+        s={{ hide: true }}
         >
           <TableOfContents structure={structure} about={about} />
         </Column>
       )}
+
       <Row fillWidth s={{ direction: "column" }} horizontal="center">
         {about.avatar.display && (
           <Column

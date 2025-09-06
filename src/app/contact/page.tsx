@@ -2,13 +2,13 @@
 
 import { baseURL, contact } from "@/resources";
 import {
-  Button,
-  Column,
-  Heading,
-  RevealFx,
-  Row,
-  Schema,
-  Text
+    Button,
+    Column,
+    Heading,
+    RevealFx,
+    Row,
+    Schema,
+    Text
 } from "@once-ui-system/core";
 import { useState } from "react";
 
@@ -90,7 +90,7 @@ export default function Contact() {
       <Column fillWidth horizontal="center" gap="l" paddingBottom="xl">
         <Row horizontal="center" gap="m" vertical="center">
           <Column gap="s" horizontal="center">
-            <Heading wrap="balance" variant="display-strong-l">
+            <Heading wrap="balance" variant="display-strong-l" align="center">
               {contact.headline}
             </Heading>
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl" align="center">
@@ -142,7 +142,7 @@ export default function Contact() {
       {/* Contact Methods Grid */}
       <Column fillWidth gap="xl" horizontal="center">
         {/* First Row - 3 Cards */}
-        <Row gap="l" horizontal="center" s={{ direction: "column" }}>
+        <Row gap="l" horizontal="center" className="contact-grid">
           {contact.contactMethods.slice(0, 3).map((method, index) => (
             <RevealFx key={index} translateY="16" delay={index * 0.1}>
               <Column
@@ -159,6 +159,7 @@ export default function Contact() {
                   position: "relative",
                   overflow: "hidden",
                   width: "350px",
+                  maxWidth: "100%",
                   flexShrink: 0,
                 }}
               >
@@ -277,7 +278,7 @@ export default function Contact() {
 
         {/* Second Row - Additional Cards if more than 3 */}
         {contact.contactMethods.length > 3 && (
-          <Row gap="l" horizontal="center" s={{ direction: "column" }}>
+          <Row gap="l" horizontal="center" className="contact-grid">
             {contact.contactMethods.slice(3).map((method, index) => (
               <RevealFx key={index + 3} translateY="16" delay={(index + 3) * 0.1}>
                 <Column
@@ -455,7 +456,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} style={{ width: '100%' }}>
               <Column gap="l">
                 {/* Name Fields */}
-                <Row gap="l" s={{ direction: "column" }}>
+                <Row gap="l" className="form-row">
                   <Column flex={1} gap="s">
                     <Text variant="label-default-s">First Name *</Text>
                     <input
