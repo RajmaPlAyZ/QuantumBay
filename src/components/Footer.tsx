@@ -6,7 +6,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column" }}>
+    <Row as="footer" fillWidth padding="8" horizontal="center">
       <Row
         className={styles.mobile}
         maxWidth="m"
@@ -15,17 +15,15 @@ export const Footer = () => {
         gap="16"
         horizontal="between"
         vertical="center"
-        s={{
-          direction: "column",
-          horizontal: "center",
-          align: "center",
-        }}
       >
-        <Text variant="body-default-s" onBackground="neutral-strong">
+        <Text variant="body-default-s" onBackground="neutral-strong" className="footer-text">
           <Text onBackground="neutral-weak">© {currentYear} /</Text>
           <Text paddingX="4">{person.name}</Text>
           <Text onBackground="neutral-weak">
             / Cloud & Hosting Solutions
+          </Text>
+          <Text onBackground="neutral-weak" paddingX="4">
+            / Developed by Avaris
           </Text>
         </Text>
         <Row gap="16">
@@ -44,7 +42,7 @@ export const Footer = () => {
           )}
         </Row>
       </Row>
-      <Row height="80" hide s={{ hide: false }} />
+      <Row height="80" hide />
     </Row>
   );
 };
