@@ -66,6 +66,19 @@
   }
 }
 
+/* Responsive styles for about cards */
+@media (max-width: 768px) {
+  .about-grid {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .about-card {
+    width: 100% !important;
+    max-width: 350px !important;
+  }
+}
+
 /* Responsive styles for CTA cards */
 @media (max-width: 768px) {
   .cta-cards-container {
@@ -76,6 +89,7 @@
   .cta-card {
     width: 100% !important;
     max-width: 500px !important;
+    padding-bottom: 2rem !important;
   }
   
   .cta-buttons {
@@ -93,6 +107,7 @@
     flex-direction: column !important;
     align-items: center !important;
     width: 100% !important;
+    margin-bottom: 0.5rem !important;
   }
   
   .newsletter-form input {
@@ -113,11 +128,6 @@
     line-height: 1.4 !important;
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
-  }
-  
-  /* Ensure CTA cards have enough bottom padding for subtext */
-  .cta-card {
-    padding-bottom: 2rem !important;
   }
   
   /* Make sure newsletter form container has proper spacing */

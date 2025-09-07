@@ -59,22 +59,22 @@
   }
 }
 
+/* Mobile content styling */
+.mobileContent {
+  display: none; // Hidden by default, shown on mobile via s={{ hide: true }}
+}
+
 @media (max-width: breakpoints.$s) {
   .layoutWrapper {
-    flex-direction: column; // <-- stack elements vertically on mobile
-    align-items: center; // <-- center all elements
-    gap: var(--static-space-16);
+    display: none; // Hide desktop layout on mobile
+  }
+  
+  .mobileContent {
+    display: block; // Show mobile content on small screens
   }
   
   .avatar {
-    top: auto; // removes stickiness on small screens
-    position: relative;
-    margin-top: var(--static-space-4);
-    padding-top: var(--static-space-4);
-    z-index: auto; // <-- reset z-index on mobile
-    width: 100%; // <-- full width on mobile
-    max-width: 300px; // <-- reasonable max width
-    align-items: center; // <-- center avatar content
+    display: none; // Hide avatar completely on mobile
   }
 
   .textAlign {
