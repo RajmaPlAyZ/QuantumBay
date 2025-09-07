@@ -1,4 +1,3 @@
-import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import { about, baseURL, person, social } from "@/resources";
 import {
@@ -29,28 +28,6 @@ export async function generateMetadata() {
 // Fix about section Overlap Issue
 
 export default function About() {
-  const structure = [
-    {
-      title: about.intro.title,
-      display: about.intro.display,
-      items: [],
-    },
-    {
-      title: about.work.title,
-      display: about.work.display,
-      items: about.work.experiences.map((experience) => experience.company),
-    },
-    {
-      title: about.studies.title,
-      display: about.studies.display,
-      items: about.studies.institutions.map((institution) => institution.name),
-    },
-    {
-      title: about.technical.title,
-      display: about.technical.display,
-      items: about.technical.skills.map((skill) => skill.title),
-    },
-  ];
   return (
     <Column maxWidth="m">
       <Schema
@@ -66,19 +43,8 @@ export default function About() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      {about.tableOfContent.display && (
-        <Column
-        className={styles.sidebar}
-        minWidth={200}
-        paddingLeft="24"
-        gap="32"
-        s={{ hide: true }}
-        >
-          <TableOfContents structure={structure} about={about} />
-        </Column>
-      )}
 
-      <Row fillWidth s={{ direction: "column" }} horizontal="center">
+      <Row fillWidth s={{ direction: "column" }} horizontal="center" className={styles.layoutWrapper}>
         {about.avatar.display && (
           <Column
             className={styles.avatar}
@@ -106,7 +72,7 @@ export default function About() {
             )}
           </Column>
         )}
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+        <Column className={`${styles.blockAlign} ${styles.mainContent}`} flex={9} maxWidth={40}>
           <Column
             id={about.intro.title}
             fillWidth

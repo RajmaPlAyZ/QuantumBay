@@ -14,7 +14,12 @@
   height: fit-content;
   top: var(--static-space-64);
   flex-shrink: 0; // <-- prevents collapsing into content
-  z-index: 2; // <-- ensures it layers correctly below ToC
+  z-index: 1; // <-- lower z-index to prevent overlap
+  will-change: transform; // <-- optimizes for sticky positioning
+  contain: layout; // <-- improves performance
+  /* Production build fixes */
+  transform: translateZ(0); // <-- forces hardware acceleration
+  backface-visibility: hidden; // <-- prevents flickering
 }
 
 /* Ensure layout wrapper respects sidebars */
@@ -23,25 +28,53 @@
   align-items: flex-start;
 }
 
-/* Sidebar (Table of Contents) */
-.sidebar {
-  position: sticky;
-  top: var(--static-space-32);
-  flex-shrink: 0;
-  z-index: 3; // stays above avatar if both overlap
-}
+/* Removed sidebar styles - no longer needed */
 
 .mainContent {
   flex: 1;
   min-width: 0; // fixes text overflow inside flex layouts
+  position: relative; // <-- creates stacking context
+  z-index: 0; // <-- ensures content stays below sticky elements
+}
+
+/* Ensure proper spacing between avatar and content */
+.blockAlign {
+  margin-left: var(--static-space-16); // <-- adds space between avatar and content
+  position: relative;
+  z-index: 0;
+}
+
+/* Additional production fixes */
+@media (min-width: breakpoints.$s) {
+  .avatar {
+    /* Ensure avatar doesn't overlap content on larger screens */
+    max-width: 200px;
+    width: 100%;
+  }
+  
+  .blockAlign {
+    /* Ensure content has enough space */
+    min-width: 0;
+    flex: 1;
+  }
 }
 
 @media (max-width: breakpoints.$s) {
+  .layoutWrapper {
+    flex-direction: column; // <-- stack elements vertically on mobile
+    align-items: center; // <-- center all elements
+    gap: var(--static-space-16);
+  }
+  
   .avatar {
     top: auto; // removes stickiness on small screens
     position: relative;
     margin-top: var(--static-space-4);
     padding-top: var(--static-space-4);
+    z-index: auto; // <-- reset z-index on mobile
+    width: 100%; // <-- full width on mobile
+    max-width: 300px; // <-- reasonable max width
+    align-items: center; // <-- center avatar content
   }
 
   .textAlign {
@@ -50,5 +83,7 @@
 
   .blockAlign {
     align-self: center;
+    margin-left: 0; // <-- remove margin on mobile
+    width: 100%; // <-- full width on mobile
   }
 }
