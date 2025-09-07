@@ -1,6 +1,5 @@
 "use client";
 
-import { useAuth } from "@/contexts/AuthContext";
 import {
     Button,
     Column,
@@ -20,14 +19,11 @@ export default function SignupForm() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const router = useRouter();
-  const { signUp } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError("");
-
-    console.log("Signup attempt:", { email, firstName, lastName });
 
     if (password !== confirmPassword) {
       setError("Passwords do not match");
@@ -42,28 +38,31 @@ export default function SignupForm() {
     }
 
     try {
-      console.log("Calling signUp function...");
-      const { error } = await signUp(email, password, {
-        first_name: firstName,
-        last_name: lastName,
-        full_name: `${firstName} ${lastName}`,
+      const response = await fetch("/api/authenticate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ 
+          email, 
+          password,
+          firstName,
+          lastName,
+          action: "signup"
+        }),
       });
-      
-      console.log("Signup result:", { error });
-      
-      if (error) {
-        console.error("Signup error:", error);
-        setError(error.message || "Signup failed");
-      } else {
-        console.log("Signup successful!");
+
+      if (response.ok) {
         setSuccess(true);
         // Redirect to login page after successful signup
         setTimeout(() => {
           router.push("/login");
         }, 2000);
+      } else {
+        const data = await response.json();
+        setError(data.message || "Signup failed");
       }
     } catch (err) {
-      console.error("Signup exception:", err);
       setError("An error occurred. Please try again.");
     } finally {
       setIsLoading(false);
