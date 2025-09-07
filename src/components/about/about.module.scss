@@ -1,29 +1,54 @@
 @use "../breakpoints.scss" as breakpoints;
 
 .hover {
-    transition: var(--transition-micro-medium);
+  transition: var(--transition-micro-medium);
 
-    &:hover {
-        transform: translateX(var(--static-space-4));
-    }
+  &:hover {
+    transform: translateX(var(--static-space-4));
+  }
 }
 
+/* Avatar sidebar */
 .avatar {
-    position: sticky;
-    height: fit-content;
-    top: var(--static-space-64);
+  position: sticky;
+  height: fit-content;
+  top: var(--static-space-64);
+  flex-shrink: 0; // <-- prevents collapsing into content
+  z-index: 2; // <-- ensures it layers correctly below ToC
+}
+
+/* Ensure layout wrapper respects sidebars */
+.layoutWrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Sidebar (Table of Contents) */
+.sidebar {
+  position: sticky;
+  top: var(--static-space-32);
+  flex-shrink: 0;
+  z-index: 3; // stays above avatar if both overlap
+}
+
+.mainContent {
+  flex: 1;
+  min-width: 0; // fixes text overflow inside flex layouts
 }
 
 @media (max-width: breakpoints.$s) {
-    .avatar {
-        top: auto;
-    }
+  .avatar {
+    top: auto; // removes stickiness on small screens
+    position: relative;
+    margin-top: var(--static-space-4);
+    padding-top: var(--static-space-4);
+  }
 
-    .textAlign {
-        text-align: center;
-    }
+  .textAlign {
+    text-align: center;
+  }
 
-    .blockAlign {
-        align-self: center;
-    }
+  .blockAlign {
+    align-self: center;
+  }
 }

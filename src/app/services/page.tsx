@@ -55,17 +55,7 @@ export default function Services() {
       {/* Services Grid */}
       <Column fillWidth gap="xl" horizontal="center">
         {/* First Row - 3 Cards */}
-        <Row 
-          gap="l" 
-          horizontal="center" 
-          className="services-grid"
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            alignItems: 'flex-start'
-          }}
-        >
+        <Row gap="l" horizontal="center" className="services-grid">
           {services.serviceList.slice(0, 3).map((service, index) => (
             <RevealFx key={index} translateY="16" delay={index * 0.1}>
               <Column

@@ -26,6 +26,7 @@ export async function generateMetadata() {
     path: about.path,
   });
 }
+// Fix about section Overlap Issue
 
 export default function About() {
   const structure = [
